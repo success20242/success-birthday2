@@ -9,7 +9,7 @@
     <meta property="og:title" content="Happy 1st Birthday to Success 🎉" />
     <meta property="og:description" content="With heartfelt gratitude from Dad & Mum to all who celebrated our precious son." />
     <meta property="og:image" content="https://i.imgur.com/RpA5llr.jpeg" />
-    <meta property="og:url" content="https://yourusername.github.io/success-birthday2/" />
+    <meta property="og:url" content="https://success20242.github.io/success-birthday2/" />
     <meta property="og:type" content="website" />
 
     <!-- 🌟 Styling -->
@@ -44,7 +44,7 @@
         width: 100%;
         max-width: 500px;
         border-radius: 15px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         margin-bottom: 2rem;
       }
 
@@ -68,6 +68,21 @@
         max-width: 500px;
         margin-top: 1rem;
         outline: none;
+      }
+
+      .play-btn {
+        padding: 12px 24px;
+        background-color: #d63384;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .play-btn:hover {
+        background-color: #b61f6e;
       }
     </style>
   </head>
@@ -98,7 +113,10 @@
       <!-- 🎶 Baby Birthday Song -->
       <div class="music">
         <p>🎵 A little song for Success 🎶</p>
-        <audio controls autoplay>
+        <button class="play-btn" onclick="document.getElementById('bgmusic').play(); document.getElementById('bgmusic').scrollIntoView({ behavior: 'smooth' });">
+          ▶️ Play Song
+        </button>
+        <audio id="bgmusic" controls loop>
           <source src="https://cdn.pixabay.com/audio/2022/07/26/audio_5d7f27b872.mp3" type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
