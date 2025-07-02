@@ -1,157 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thank You for Celebrating Success!</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thank You for Celebrating Success!</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ffe5ec, #e0f7fa);
+      color: #333;
+      text-align: center;
+      margin: 0; padding: 2rem;
+    }
+    .play-btn {
+      padding: 12px 24px;
+      background-color: #d63384;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 20px;
+      display: none;
+    }
+    .play-btn:hover {
+      background-color: #b61f6e;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 Happy 1st Birthday, Success! 🎂</h1>
+  <p>💖 From Mum & Dad with Love 💖</p>
 
-    <!-- 🌐 Facebook Meta Tags -->
-    <meta property="og:title" content="Happy 1st Birthday to Success 🎉" />
-    <meta property="og:description" content="With heartfelt gratitude from Dad & Mum to all who celebrated our precious son." />
-    <meta property="og:image" content="https://i.imgur.com/RpA5llr.jpeg" />
-    <meta property="og:url" content="https://success20242.github.io/success-birthday2/" />
-    <meta property="og:type" content="website" />
+  <audio id="bgmusic" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2021/10/16/audio_6ef1ac5211.mp3?filename=sunny-126053.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
 
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Segoe UI', sans-serif;
-        background: linear-gradient(135deg, #ffe5ec, #e0f7fa);
-        color: #333;
-        text-align: center;
-      }
+  <button id="playBtn" class="play-btn">▶️ Play Song</button>
 
-      .container {
-        max-width: 800px;
-        margin: auto;
-        padding: 2rem;
-      }
+  <script>
+    const audio = document.getElementById('bgmusic');
+    const playBtn = document.getElementById('playBtn');
 
-      h1 {
-        font-size: 2.8rem;
-        color: #d63384;
-        margin-bottom: 0.5rem;
-      }
+    window.addEventListener('load', () => {
+      const playPromise = audio.play();
 
-      h2 {
-        color: #28a745;
-        margin-bottom: 2rem;
-      }
-
-      img {
-        width: 100%;
-        max-width: 500px;
-        border-radius: 15px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        margin-bottom: 2rem;
-      }
-
-      p {
-        font-size: 1.2rem;
-        line-height: 1.6;
-      }
-
-      .footer {
-        margin-top: 3rem;
-        font-weight: bold;
-        color: #555;
-      }
-
-      .music {
-        margin-top: 2rem;
-      }
-
-      audio {
-        width: 100%;
-        max-width: 500px;
-        margin-top: 1rem;
-        outline: none;
-      }
-
-      .play-btn {
-        padding: 12px 24px;
-        background-color: #d63384;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-      }
-
-      .play-btn:hover {
-        background-color: #b61f6e;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1>🎉 Happy 1st Birthday, Success! 🎂</h1>
-      <h2>💖 From Mum & Dad with Love 💖</h2>
-
-      <img src="https://i.imgur.com/RpA5llr.jpeg" alt="Success's Birthday Photo" />
-
-      <p>
-        With hearts overflowing with joy and gratitude, we thank every one of you who celebrated our precious son’s first birthday. 🎈
-      </p>
-
-      <p>
-        Your love, prayers, kind words, gifts, comments, calls, and presence—whether near or far—meant the world to us. You helped put the brightest smile on Success’s face and created memories we will cherish forever.
-      </p>
-
-      <p>
-        As he begins this beautiful journey of life, we pray God blesses each of you richly for your kindness. ❤️
-      </p>
-
-      <p class="footer">
-        With all our love,<br />
-        Daddy & Mummy 💞
-      </p>
-
-      <!-- 🎶 Baby Birthday Song -->
-      <div class="music">
-        <p>🎵 A little song for Success 🎶</p>
-        <button class="play-btn" onclick="playManually()">
-          ▶️ Play Song
-        </button>
-        <audio id="bgmusic" autoplay muted loop controls>
-          <source src="https://cdn.pixabay.com/audio/2022/07/26/audio_5d7f27b872.mp3" type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-    </div>
-
-    <!-- 🎧 Dual Playback Logic -->
-    <script>
-      const audio = document.getElementById('bgmusic');
-
-      // Try to autoplay muted on load
-      window.addEventListener('load', () => {
-        audio.play().then(() => {
-          console.log('✅ Music started (muted)');
-        }).catch(err => {
-          console.warn('⚠️ Autoplay may be blocked:', err.message);
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          // Auto-play started!
+          console.log('Music is playing automatically.');
+        }).catch(() => {
+          // Autoplay prevented, show play button
+          playBtn.style.display = 'inline-block';
         });
-      });
-
-      // Unmute and play when user interacts (fallback)
-      const enableAudio = () => {
-        audio.muted = false;
-        audio.play();
-        document.removeEventListener('click', enableAudio);
-        document.removeEventListener('touchstart', enableAudio);
-      };
-
-      document.addEventListener('click', enableAudio);
-      document.addEventListener('touchstart', enableAudio);
-
-      // Play button fallback
-      function playManually() {
-        audio.muted = false;
-        audio.play();
-        audio.scrollIntoView({ behavior: 'smooth' });
       }
-    </script>
-  </body>
+    });
+
+    playBtn.addEventListener('click', () => {
+      audio.play();
+      playBtn.style.display = 'none';
+    });
+  </script>
+</body>
 </html>
