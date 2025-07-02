@@ -12,7 +12,6 @@
     <meta property="og:url" content="https://success20242.github.io/success-birthday2/" />
     <meta property="og:type" content="website" />
 
-    <!-- 🌟 Styling -->
     <style>
       body {
         margin: 0;
@@ -113,14 +112,46 @@
       <!-- 🎶 Baby Birthday Song -->
       <div class="music">
         <p>🎵 A little song for Success 🎶</p>
-        <button class="play-btn" onclick="document.getElementById('bgmusic').play(); document.getElementById('bgmusic').scrollIntoView({ behavior: 'smooth' });">
+        <button class="play-btn" onclick="playManually()">
           ▶️ Play Song
         </button>
-        <audio id="bgmusic" controls loop>
+        <audio id="bgmusic" autoplay muted loop controls>
           <source src="https://cdn.pixabay.com/audio/2022/07/26/audio_5d7f27b872.mp3" type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
       </div>
     </div>
+
+    <!-- 🎧 Dual Playback Logic -->
+    <script>
+      const audio = document.getElementById('bgmusic');
+
+      // Try to autoplay muted on load
+      window.addEventListener('load', () => {
+        audio.play().then(() => {
+          console.log('✅ Music started (muted)');
+        }).catch(err => {
+          console.warn('⚠️ Autoplay may be blocked:', err.message);
+        });
+      });
+
+      // Unmute and play when user interacts (fallback)
+      const enableAudio = () => {
+        audio.muted = false;
+        audio.play();
+        document.removeEventListener('click', enableAudio);
+        document.removeEventListener('touchstart', enableAudio);
+      };
+
+      document.addEventListener('click', enableAudio);
+      document.addEventListener('touchstart', enableAudio);
+
+      // Play button fallback
+      function playManually() {
+        audio.muted = false;
+        audio.play();
+        audio.scrollIntoView({ behavior: 'smooth' });
+      }
+    </script>
   </body>
 </html>
