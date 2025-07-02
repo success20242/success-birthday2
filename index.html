@@ -2,137 +2,148 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thank You for Celebrating Success!</title>
-  <meta name="description" content="Happy 1st birthday to Success! With love and gratitude from Mum & Dad.">
+
+  <!-- Meta Tags -->
+  <meta property="og:title" content="Happy 1st Birthday to Success 🎉" />
+  <meta property="og:description" content="With heartfelt gratitude from Dad & Mum to all who celebrated our precious son." />
+  <meta property="og:image" content="https://i.imgur.com/RpA5llr.jpeg" />
+  <meta property="og:url" content="https://success20242.github.io/success-birthday2/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Styling -->
   <style>
     body {
+      margin: 0;
+      padding: 0;
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(135deg, #ffe5ec, #e0f7fa);
       color: #333;
       text-align: center;
-      margin: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
       padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      color: #d63384;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      color: #28a745;
+      margin-bottom: 2rem;
     }
 
     img {
       width: 100%;
       max-width: 500px;
       border-radius: 15px;
-      margin-top: 2rem;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      color: #d63384;
-    }
-
-    h2 {
-      color: #28a745;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
     }
 
     p {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       line-height: 1.6;
-      margin-bottom: 1.5rem;
     }
 
-    .play-btn {
-      padding: 12px 24px;
-      background-color: #d63384;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      display: none;
+    .footer {
+      margin-top: 3rem;
+      font-weight: bold;
+      color: #555;
+    }
+
+    audio {
+      width: 100%;
+      max-width: 500px;
       margin-top: 1rem;
+      outline: none;
     }
 
-    .play-btn:hover {
-      background-color: #b61f6e;
+    .music-note {
+      font-size: 2rem;
+      color: #d63384;
+      margin-top: 2rem;
+    }
+
+    .music-credit {
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      color: #777;
+    }
+
+    .music-credit a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .music-credit a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <h1>🎉 Happy 1st Birthday, Success! 🎂</h1>
-  <h2>💖 From Mum & Dad with Love 💖</h2>
+  <div class="container">
+    <h1>🎉 Happy 1st Birthday, Success! 🎂</h1>
+    <h2>💖 From Mum & Dad with Love 💖</h2>
 
-  <img src="https://i.imgur.com/RpA5llr.jpeg" alt="Success's Birthday Photo" />
+    <img src="https://i.imgur.com/RpA5llr.jpeg" alt="Success's Birthday Photo" />
 
-  <p>
-    With hearts overflowing with joy and gratitude, we thank everyone who celebrated our precious son’s first birthday. 🎈
-  </p>
+    <p>
+      With hearts overflowing with joy and gratitude, we thank every one of you who celebrated our precious son’s first birthday. 🎈
+    </p>
 
-  <p>
-    Your love, prayers, gifts, comments, and presence—whether near or far—meant the world to us. You helped put the brightest smile on Success’s face and created memories we’ll cherish forever.
-  </p>
+    <p>
+      Your love, prayers, kind words, gifts, comments, calls, and presence—whether near or far—meant the world to us. You helped put the brightest smile on Success’s face and created memories we will cherish forever.
+    </p>
 
-  <p>
-    As he begins this beautiful journey of life, we pray God blesses each of you richly for your kindness. ❤️
-  </p>
+    <p>
+      As he begins this beautiful journey of life, we pray God blesses each of you richly for your kindness. ❤️
+    </p>
 
-  <audio id="bgmusic" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2021/10/16/audio_6ef1ac5211.mp3?filename=sunny-126053.mp3" type="audio/mpeg" />
-    Your browser does not support the audio element.
-  </audio>
+    <p class="footer">
+      With all our love,<br />
+      Daddy & Mummy 💞
+    </p>
 
-  <button id="playBtn" class="play-btn">▶️ Tap to Play Song</button>
+    <!-- 🎶 Royalty-free Music Player -->
+    <div>
+      <span class="music-note">🎵</span>
+      <audio id="bgmusic" controls autoplay loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-cute.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <div class="music-credit">
+      Music: <a href="https://www.bensound.com/royalty-free-music/track/cute" target="_blank" rel="noopener">"Cute" by Bensound</a>
+      (royalty-free, <a href="https://www.bensound.com/licensing" target="_blank" rel="noopener">free use with credit</a>)
+    </div>
+  </div>
 
   <script>
     const audio = document.getElementById('bgmusic');
-    const playBtn = document.getElementById('playBtn');
 
-    // Set audio volume and fade in
-    audio.volume = 0;
-    const fadeIn = () => {
-      let vol = 0;
-      const fade = setInterval(() => {
-        if (vol < 1) {
-          vol += 0.1;
-          audio.volume = Math.min(vol, 1);
-        } else {
-          clearInterval(fade);
-        }
-      }, 200);
+    // Try to autoplay, fallback on user click/tap
+    const tryPlay = () => {
+      audio.play().then(() => {
+        console.log("🎶 Music started");
+        document.removeEventListener('click', tryPlay);
+        document.removeEventListener('touchstart', tryPlay);
+      }).catch(err => {
+        console.warn("🔇 Autoplay blocked:", err.message);
+      });
     };
 
-    // Try autoplay on page load
-    window.addEventListener('load', () => {
-      const tryPlay = audio.play();
-      if (tryPlay !== undefined) {
-        tryPlay
-          .then(() => {
-            console.log('✅ Autoplay successful');
-            fadeIn();
-          })
-          .catch(() => {
-            console.warn('⚠️ Autoplay blocked, waiting for user gesture');
-            playBtn.style.display = 'inline-block';
-          });
-      }
-    });
-
-    // Play on button click
-    playBtn.addEventListener('click', () => {
-      audio.play();
-      fadeIn();
-      playBtn.style.display = 'none';
-    });
-
-    // Also play if user scrolls or clicks anywhere
-    const activateMusic = () => {
-      if (audio.paused) {
-        audio.play();
-        fadeIn();
-        playBtn.style.display = 'none';
-      }
-    };
-    window.addEventListener('click', activateMusic, { once: true });
-    window.addEventListener('scroll', activateMusic, { once: true });
+    window.addEventListener('load', tryPlay);
+    document.addEventListener('click', tryPlay);
+    document.addEventListener('touchstart', tryPlay);
   </script>
 </body>
 </html>
